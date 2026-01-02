@@ -208,10 +208,12 @@
     <!-- Process Start -->
 
 
-    <!-- Booking Start -->
+    
+<!-- Booking Start -->
+
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
-            <div class="booking p-5">
+            <div class="booking p-5" style="border-radius: 7.5%;">
                 <div class="row g-5 align-items-center">
                     <div class="col-md-6 text-white">
                         <h6 class="text-white text-uppercase">Booking</h6>
@@ -232,50 +234,81 @@
                     </div>
                     <div class="col-md-6">
                         <h1 class="text-white mb-4">Book A Tour</h1>
-                        <form>
+
+                        <form id="bookingForm">
                             <div class="row g-3">
+
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent" id="name"
-                                            placeholder="Your Name">
+                                        <input type="text" class="form-control bg-transparent" id="name" name="name"
+                                            placeholder="Your Name" required>
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
+
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control bg-transparent" id="email"
-                                            placeholder="Your Email">
+                                        <input type="email" class="form-control bg-transparent" id="email" name="email"
+                                            placeholder="Your Email" required>
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-transparent datetimepicker-input"
-                                            id="datetime" placeholder="Date & Time" data-target="#date3"
-                                            data-toggle="datetimepicker" />
-                                        <label for="datetime">Date & Time</label>
-                                    </div>
-                                </div>
+
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select class="form-select bg-transparent" id="select1">
-                                            <option value="1">Destination 1</option>
-                                            <option value="2">Destination 2</option>
-                                            <option value="3">Destination 3</option>
-                                        </select>
-                                        <label for="select1">Destination</label>
+                                        <input class="form-control bg-transparent" list="destinations" id="destination"
+                                            name="destination" placeholder="Destination" required>
+                                        <datalist id="destinations">
+                                            <option value="Zanzibar">
+                                            <option value="Diani">
+                                            <option value="Maasai Mara">
+                                            <option value="Amboseli">
+                                            <option value="Nakuru">
+                                            <option value="Watamu">
+                                        </datalist>
+                                        <label for="destination">Destination</label>
                                     </div>
                                 </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="datetime-local" class="form-control bg-transparent" id="fromDate"
+                                            name="from_date" required>
+                                        <label for="fromDate">From (Date & Time)</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="datetime-local" class="form-control bg-transparent" id="toDate"
+                                            name="to_date" required>
+                                        <label for="toDate">To (Date & Time)</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control bg-transparent" id="people"
+                                            name="people" placeholder="Number of People" required>
+                                        <label for="people">Number of People</label>
+                                    </div>
+                                </div>
+
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control bg-transparent" placeholder="Special Request"
-                                            id="message" style="height: 100px"></textarea>
+                                        <textarea class="form-control bg-transparent" id="message" name="message"
+                                            placeholder="Special Request" style="height: 100px"></textarea>
                                         <label for="message">Special Request</label>
                                     </div>
                                 </div>
+
                                 <div class="col-12">
-                                    <button class="btn btn-outline-light w-100 py-3" type="submit">Book Now</button>
+                                    <button class="btn btn-outline-light w-100 py-3" type="submit">
+                                        Book Now
+                                    </button>
                                 </div>
+
                             </div>
                         </form>
                     </div>
@@ -283,8 +316,9 @@
             </div>
         </div>
     </div>
-    <!-- Booking Start -->
 
+
+    <!-- Booking Start -->
         
 
      <!-- Footer Start -->
@@ -382,6 +416,52 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+<!-- Firebase -->
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, collection, addDoc, Timestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBGWcHUMJ3XyaamcJsHbkEAb9u4j4h1qV4",
+    authDomain: "pocket-of-paradise-websi-9f5d3.firebaseapp.com",
+    projectId: "pocket-of-paradise-websi-9f5d3",
+    storageBucket: "pocket-of-paradise-websi-9f5d3.firebasestorage.app",
+    messagingSenderId: "155469835422",
+    appId: "1:155469835422:web:02b593a60f174e1054df8f"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const form = document.getElementById("bookingForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    try {
+      await addDoc(collection(db, "bookings"), {
+        name: form.name.value,
+        email: form.email.value,
+        destination: form.destination.value,
+        fromDate: form.from_date.value,
+        toDate: form.to_date.value,
+        people: form.people.value,
+        message: form.message.value,
+        status: "pending",
+        createdAt: Timestamp.now()
+      });
+
+      alert("Booking received! Confirmation email sent.");
+
+      form.reset();
+    } catch (error) {
+      alert("Something went wrong. Try again.");
+      console.error(error);
+    }
+  });
+</script>
+ <!-- Firebase -->
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
