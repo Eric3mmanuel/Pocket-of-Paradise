@@ -236,81 +236,82 @@
                         <h1 class="text-white mb-4">Book A Tour</h1>
 
                         <form id="bookingForm">
-                            <div class="row g-3">
+  <div class="row g-3">
 
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent" id="name" name="name"
-                                            placeholder="Your Name" required>
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        <input type="text" class="form-control bg-transparent" id="name" name="name"
+          placeholder="Your Name" required>
+        <label for="name" style="color: burlywood;">Your Name</label>
+      </div>
+    </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control bg-transparent" id="email" name="email"
-                                            placeholder="Your Email" required>
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        <input type="email" class="form-control bg-transparent" id="email" name="email"
+          placeholder="Your Email" required>
+        <label for="email" style="color: burlywood;">Your Email</label>
+      </div>
+    </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input class="form-control bg-transparent" list="destinations" id="destination"
-                                            name="destination" placeholder="Destination" required>
-                                        <datalist id="destinations">
-                                            <option value="Zanzibar">
-                                            <option value="Diani">
-                                            <option value="Maasai Mara">
-                                            <option value="Amboseli">
-                                            <option value="Nakuru">
-                                            <option value="Watamu">
-                                        </datalist>
-                                        <label for="destination">Destination</label>
-                                    </div>
-                                </div>
+    <!-- ✅ MOBILE-FRIENDLY DESTINATION -->
+    <div class="col-md-6">
+      <div class="form-floating">
+        <select class="form-select bg-transparent" id="destination" name="destination" required>
+          <option value="" disabled selected>Select Destination</option>
+          <option value="Zanzibar">Zanzibar</option>
+          <option value="Diani">Diani</option>
+          <option value="Maasai Mara">Maasai Mara</option>
+          <option value="Amboseli">Amboseli</option>
+          <option value="Nakuru">Nakuru</option>
+          <option value="Watamu">Watamu</option>
+        </select>
+        <label for="destination" style="color: burlywood;">Destination</label>
+      </div>
+    </div>
 
+    <!-- ✅ DATE ONLY -->
+    <div class="col-md-6">
+      <div class="form-floating">
+        <input type="date" class="form-control bg-transparent" id="fromDate"
+          name="from_date" required>
+        <label for="fromDate" style="color: burlywood;">From Date</label>
+      </div>
+    </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="datetime-local" class="form-control bg-transparent" id="fromDate"
-                                            name="from_date" required>
-                                        <label for="fromDate">From (Date & Time)</label>
-                                    </div>
-                                </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        <input type="date" class="form-control bg-transparent" id="toDate"
+          name="to_date" required>
+        <label for="toDate" style="color: burlywood;">To Date</label>
+      </div>
+    </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="datetime-local" class="form-control bg-transparent" id="toDate"
-                                            name="to_date" required>
-                                        <label for="toDate">To (Date & Time)</label>
-                                    </div>
-                                </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        <input type="number" class="form-control bg-transparent" id="people"
+          name="people" placeholder="Number of People" required>
+        <label for="people" style="color: burlywood;">Number of People</label>
+      </div>
+    </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="number" class="form-control bg-transparent" id="people"
-                                            name="people" placeholder="Number of People" required>
-                                        <label for="people">Number of People</label>
-                                    </div>
-                                </div>
+    <div class="col-12">
+      <div class="form-floating">
+        <textarea class="form-control bg-transparent" id="message" name="message"
+          placeholder="Special Request" style="height: 100px"></textarea>
+        <label for="message" style="color: burlywood;">Special Request</label>
+      </div>
+    </div>
 
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control bg-transparent" id="message" name="message"
-                                            placeholder="Special Request" style="height: 100px"></textarea>
-                                        <label for="message">Special Request</label>
-                                    </div>
-                                </div>
+    <div class="col-12">
+      <button class="btn btn-outline-light w-100 py-3" type="submit">
+        Book Now
+      </button>
+    </div>
 
-                                <div class="col-12">
-                                    <button class="btn btn-outline-light w-100 py-3" type="submit">
-                                        Book Now
-                                    </button>
-                                </div>
+  </div>
+</form>
 
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -479,5 +480,6 @@
 
 
 </body>
+
 
 </html>
