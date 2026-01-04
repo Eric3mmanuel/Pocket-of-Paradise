@@ -65,3 +65,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const destinationSelect = document.getElementById("destination");
+
+  if (destinationSelect) {
+    new Choices(destinationSelect, {
+      searchEnabled: true,
+      itemSelectText: "",
+      shouldSort: false,
+      placeholderValue: "Type or select destination",
+      searchPlaceholderValue: "Start typing destination…",
+    });
+  }
+});
+
