@@ -32,6 +32,10 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Choices.js CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+
 </head>
 
 <body>
@@ -171,20 +175,25 @@
     </div>
 
     <!-- ✅ MOBILE-FRIENDLY DESTINATION -->
-    <div class="col-md-6">
-      <div class="form-floating">
-        <select class="form-select bg-transparent" id="destination" name="destination" required>
-          <option value="" disabled selected>Select Destination</option>
-          <option value="Zanzibar">Kilindi Zanzibar</option>
-          <option value="Diani">Lewa Safari Camp</option>
-          <option value="Maasai Mara">Sand River Mara </option>
-          <option value="Amboseli">Loisaba Star Beds</option>
-          <option value="Nakuru">Tortilis Camp Amboseli</option>
-          <option value="Watamu">Mara Sopa Lodge</option>
-        </select>
-        <label for="destination" style="color: burlywood;">Destination</label>
-      </div>
-    </div>
+   <div class="col-md-6">
+  <div class="form-floating">
+    <select
+      class="form-select bg-transparent"
+      id="destination"
+      name="destination"
+      required
+    >
+      <option value="">Select or type destination</option>
+      <option value="Kilindi Zanzibar">Kilindi Zanzibar</option>
+      <option value="Lewa Safari Camp">Lewa Safari Camp</option>
+      <option value="Sand River Mara">Sand River Mara</option>
+      <option value="Loisaba Star Beds">Loisaba Star Beds</option>
+      <option value="Tortilis Camp Amboseli">Tortilis Camp Amboseli</option>
+      <option value="Mara Sopa Lodge">Mara Sopa Lodge</option>
+    </select>
+    <label for="destination" style="color: burlywood;">Destination</label>
+  </div>
+</div>
 
     <!-- ✅ DATE ONLY -->
     <div class="col-md-6">
@@ -482,11 +491,16 @@
 <!-- Sweetalert pop up-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- Choices.js JS -->
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+
 
 
 </body>
 
 
 </html>
+
 
 
